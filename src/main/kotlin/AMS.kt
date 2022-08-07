@@ -33,9 +33,22 @@ fun fishFood (day : String) : String {
     }
 }
 
-fun shouldChangeWater (day : String, temperature : Int = 22, dirty : Int = 20) : Boolean {
-    return true
+fun shouldChangeWater (
+    day : String,
+    temperature : Int = 22,
+    dirty : Int = 20) : Boolean {
+
+    return when {
+        isTooHot(temperature) -> true
+        isDirty(dirty) -> true
+        isSunday(day) -> false
+        else -> true
+    }
 }
+
+fun isTooHot (temperature : Int) = temperature > 30
+fun isDirty (dirty : Int) = dirty > 30
+fun isSunday (day : String) = day == "Sunday"
 
 fun fitMoreFish (tankSize: Float, currentFish: List<Int>, fishSize: Int = 2, hasDecorations: Boolean = true): Boolean {
     return (tankSize * if (hasDecorations) 0.8 else 1.0) >= (currentFish.sum() + fishSize)

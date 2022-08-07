@@ -1,6 +1,7 @@
 fun main() {
     var fortune: String
-    for (i in 1..10) {
+    // Change your fortune cookie program to use repeat()
+    while (true) {
         fortune = getFortuneCookie(getBirthday())
         println("\nYour fortune is: $fortune")
         if (fortune.contains("Take it easy")) break
