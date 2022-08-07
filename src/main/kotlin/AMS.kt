@@ -10,6 +10,9 @@ fun feedTheFish () {
     if (shouldChangeWater(day)) {
         println("Should change water")
     }
+    if (fitMoreFish(tankSize = 30.0F, currentFish = listOf(1,2,3,4,5), fishSize = 2)) {
+        println("Can fit this fish")
+    }
 }
 
 fun randomDay () : String {
@@ -32,4 +35,8 @@ fun fishFood (day : String) : String {
 
 fun shouldChangeWater (day : String, temperature : Int = 22, dirty : Int = 20) : Boolean {
     return true
+}
+
+fun fitMoreFish (tankSize: Float, currentFish: List<Int>, fishSize: Int = 2, hasDecorations: Boolean = true): Boolean {
+    return (tankSize * if (hasDecorations) 0.8 else 1.0) >= (currentFish.sum() + fishSize)
 }
