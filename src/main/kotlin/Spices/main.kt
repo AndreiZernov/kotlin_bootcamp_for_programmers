@@ -1,3 +1,5 @@
+import Spices.SimpleSpice
+
 fun main() {
     val spices = listOf("curry", "pepper", "cayenne", "ginger", "red curry", "green curry", "red pepper" )
     val curries = spices.filter { it.contains("curry") }
@@ -8,4 +10,8 @@ fun main() {
     println("sortedCurries: $sortedCurries")
     println("newFilteredSpices: $newFilteredSpices")
     println("firstThree: $firstThree")
+
+    val spiciness = SimpleSpice()
+    println("spiciness name: ${spiciness.name}")
+    println("spiciness heat: ${spiciness.heat}")
 }
